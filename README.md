@@ -1,5 +1,4 @@
 # Fusion Class Notes Readme
 
-Each handout will have its own folder. The files are shared here for group working and to prevent overwriting each other (if we just synced in dropbox, say)
+This repo hosts the handout LaTeX file, built pdf, images, and the font used in document (install the font on your local machine in order to correctly build with xelatex).
 
-using git clone for the folder will allow updating your local files with these from the repository. when you're done, push them back to bit bucket so we always have the updated versions here.
