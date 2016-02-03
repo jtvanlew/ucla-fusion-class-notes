@@ -13,6 +13,7 @@
 \usepackage{setspace}
 \usepackage{tabularx,ragged2e,booktabs,caption}
 
+\usepackage{wrapfig}
 
 \setlength{\oddsidemargin}{0.1in}
 \setlength{\textwidth}{7.25in}
@@ -29,6 +30,7 @@
 \setlength{\parskip}{0pt}        %\parskip: gap between paragraphs
 \setlength{\voffset}{0.5in}
 
+\newcommand{\IDK}{*** I DON'T KNOW THIS WORD***}
 
 % Useful commands:
 
@@ -53,8 +55,10 @@ University of California Los Angeles, USA\\
 Candidates: SS, FS, V-alloy, Nb-alloy, M-alloy
 
 Key Problems:
-1) Radiation damage by intense neutrons
-2) Radioactivity
+\begin{enumerate}
+\item Radiation damage by intense neutrons
+\item Radioactivity
+\end{enumerate}
 
 For First Wall:
 Additional problem:
@@ -142,9 +146,53 @@ and is capable of creating additional lattice displacements. A displaced atom le
 	E_d = \text{displacement energy or the displacement threshhold}
 \end{equation}
 \begin{equation}
-	\nu(T) = \text{displacement energy or the displacement threshhold}
+	\nu(T) = \text{number of displacements produced by a primary knock-on with energy T}
 \end{equation}
 
+\subsection{Discussion of \texorpdfstring{$E_d$}{}}
+In order for the atom to be displaced it must receive a minimum amount of energy. This is called the displacement energy or the displacement threshold, $E_d$. If the energy transfer $T$ is $<E_d$, the stick atom undergoes large amplitude vibration without leaving the partical well forming its stable lattice portion. The vibration energy is quickly
+
+$E_d$ is in the range of 20 to 60 eV for ()
+
 \section{Page 6}
+communicated to the nearest neighbors of the stuck atom and appears as a localized source of heat. On the other hand, if $T>E_d$, the stuck atom is able to pass over the potential barrier and move off into the lattice as a displaced atom.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+  \includegraphics[width=0.45\textwidth]{figs/fillImage.png}
+  \end{center}
+  \caption{Diagram of lattice}
+\end{wrapfigure}
+
+In a solid, the potential barrier surrounding a lattice atom in its equilibrioum position \textit{is not uniform} in all directions. Therefore, the energy required to displace an atom depends on the \textit{direction} of the recoil. The direction acquired by the recoil is, of course, dictated by the dynamics of the reactions. In the case of isotropy (isotropic collisions, or high number of bombarding particles that collide isotropically) the direction of the recoil is random or equally probable in all directions.
+
+Therefore, the single value of $E_d$ employed in radiation damage theory is \textit{the spherical average of} $E_d(\theta)$ surrounding the equilibrium lattice site, $E_d$, of course, varies from one material to the other but is generally in the range of 20-60 eV.
+
+\section{Page 7}
+$\nu(T)$ is the number of displacements produced by a PKA with energy $T$. The value of $\nu(T)$ should be \textit{independent of the type of collision that produced the PKA}. The crux of the damage producing effect of fast neutrons is the production of displaced atoms by the primary knock-ons. Therefore the calculation of $\nu(T)$ is a very important part of the radiation damage theory.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+  \includegraphics[width=0.35\textwidth]{figs/fillImage.png}
+  \end{center}
+  \caption{PKA collision with lattice}
+\end{wrapfigure}
+
+There are several models that have been developed to calculate $\nu(T)$. These models \IDK in the assumptions invoked. However, almost all of them heat the interaction between \IDK a moving atom and the lattice atoms as a sequence of two-body elastic collisions.
+
+There are two important observations you should be aware of regarding this assumption of two-body collisions and elasticity.
+
+\section{Page 8}
+\subsection{Handwritten}
+The primary collision assumption is quite satisfactory at high interaction energies because the approach distance giving substantial energy transfer are very much smaller than the distances between lattice atoms, \IDK the collisions can be considered to occur between isolated pairs of atoms. However, at low energies appoaching the threshold $E_d$, the cross section for atom-atom interaction is large, and the incoming atom can interact with more than one atom at the same time.
+
+\subsection{Typed}
+The collision between a recoil and a lattice atom is often assumed to be elastic, which means that kinetic energy is conserved in the event. Inelasticity can arise from excitation or ionization of the orbital electrons of the atoms involved in the collision. Indeed, interaction of moving atoms or ions with the electrons of the solid constitute the major energy-loss process at high energies. Transfer of energy from the moving atom to electrons does not lead to displacement, only to heat; the low electron mass means that they carry little momentum even though they may be quite energetic. Consequently, it is important to be able to estimage the degree to which the energy of a recoil atom is partitioned between electronic excitation and elastic atom-atom collisions. Only the energy transferred in the latter process is available for causing displacements. Energy is transferred to the electrons in small increments so closely spaced that the process can be regarded as a continuous loss of energy by the moving atom. The atom continues to travel in a straight line but slows down as if it were passing through a viscous medium. The atom-atom interactions, on the other hand, occur at widely spaced intervals; transfer a significant portion of the initial kinetic energy of the moving atom in an essentially instantaneous collision, and produce substantial deflections of the original energetic atom. Consequently, the total energy loss of a moving atom can be accurately separated into two parts: (1) discrete elastic atom-atom encounters which both reduce the energy of the incident atom and produce lattice displacements and (2) a continuous process of electronic excitation which contributes to energy loss but not to displacements.
+
+Not all the energy transferred to a stationary lattice atom by a recoil atom by process 1 is used to displace the former. A substantial portion of the initial energy of the PKA is degraded to heat by atom-atom collisions that do not deliver the requisite displacement energy to the struck atom. In this event the struck atom simply rattles about in its lattice site, ultimately degrading the energy it recieved in the collision to heat.
+
+\section{Page 9}
+
+\section{Typed (on a typewriter)}
 
 \end{document}
