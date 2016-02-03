@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{epsfig}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{subfigure}
+\usepackage{setspace}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+
+
+\setlength{\oddsidemargin}{0.1in}
+\setlength{\textwidth}{7.25in}
+
+\setlength{\topmargin}{-1in}     %\topmargin: gap above header
+\setlength{\headheight}{0in}     %\headheight: height of header
+\setlength{\topskip}{0in}        %\topskip: between header and text
+\setlength{\headsep}{0in}        
+\setlength{\textheight}{692pt}   %\textheight: height of main text
+\setlength{\textwidth}{7.5in}    % \textwidth: width of text
+\setlength{\oddsidemargin}{-0.5in}  % \oddsidemargin: odd page left margin
+\setlength{\evensidemargin}{0in} %\evensidemargin : even page left margin
+\setlength{\parindent}{0.25in}   %\parindent: indentation of paragraphs
+\setlength{\parskip}{0pt}        %\parskip: gap between paragraphs
+\setlength{\voffset}{0.5in}
+
+
+% Useful commands:
+
+% \hfill		aligns-right everything right of \hfill
+
+\begin{document}
+\doublespacing
+\title{Radiation Damage in FW and Blanket Structural Materials and Superconducting Magnetic Materials}
+\author{M. Abdou \\
+Department of Mechanical and Aerospace Engineering \\
+University of California Los Angeles, USA\\
+}
+\maketitle
+
+\section{Page 1}
+\subsection{Structural materials}
+\begin{itemize}
+\item First wall
+\item Blanket
+\item Other components
+\end{itemize}
+Candidates: SS, FS, V-alloy, Nb-alloy, M-alloy
+
+Key Problems:
+1) Radiation damage by intense neutrons
+2) Radioactivity
+
+For First Wall:
+Additional problem:
+Surface effects: Intense bombardments by charged particles (H,$\alpha$, impurities) result in surface erosion (sputtering physical \& chemical, blistering, etc.)
+
+For the next two lectures, we will focus on radiation damage and radioactivity issues.
+
+\section{Page 2}
+Additional definitions:
+
+Fluence = $\Phi t_{op}$
+
+\begin{equation}
+	\text{Fluence} = \Phi t_{op}
+\end{equation}
+
+\begin{equation}
+	F = \text{plant availability} = \frac{\text{operating time}}{\text{operating time + shutdown time}}
+\end{equation}
+
+Integrated neutron wall load
+
+\begin{align}
+I_w &= P_{nw} t_{op},  \qquad \qquad [MW y/m^2]     \\
+	&= P_{nw} t F
+\end{align}
+
+Commonly we measure first wall life in units of $MW y/m^2$
+Aspect Ratio for a tokamak = $A$.
+
+\begin{equation}
+	A = \frac{\text{(plasma) major radius}}{\text{(plasma) minor radius}}
+\end{equation}
+
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=0.45\textwidth]{figs/fillImage.png}
+\caption[width=\textwidth]{Major and minor radius of toroidal reactor}
+\label{fig:reactorRadius}
+\end{figure}
+
+\section{Page 3}
+
+\subsection{Radiation Damage}
+Units
+
+Flux \& Fluence poor measure
+Total flux ~ a factor of 10 higher than 14 MeV neutron current
+
+neutron spectrum provides improvement but it is awkward.
+
+Useful units: dpa
+
+\subsection{Atomic Discplacements}
+An energetic particle such as a neutron looses its energy either by electronic excitation or by colliding with the lattice atoms. In a collision with the lattice atom an some energy is transferred into this atom if the quantity of energy transferred is larger than the energy binding the atam in its lattice the stuck atom is displaced by the bombarding particle is called the \textit{primary knock-on atom}, (PKA). Become the PKA possesses substantial kinetic energy, it becomes an energetic particle in it own right
+
+\section{Page 4}
+and is capable of creating additional lattice displacements. A displaced atom leaves (i.e. a point defect) its proper place leaving a vacancy behind. The displaced atom will eventually appear in the lattice as an interstitial atom (a point defect). The ensemble of point defects created by a single primary knock-on atom is known as \textit{displacement cascade}.
+
+\subsection{Atomic Displacements Calculating}
+\begin{equation}
+	\text{dpa} = \text{number of displacements per atom}
+\end{equation}
+\begin{equation}
+	\text{dpa} = \left[ \int \Phi(E) \sigma_d (E) dE \right] t_{\text{radiation time}}
+\end{equation}
+\begin{equation}
+	\sigma_d = \text{displacement cross section}
+\end{equation}
+\begin{equation}
+	\sigma_d(E) = \sum_{\text{all atoms}} \text{probability that a collision occurs x the number of atoms displaced by the PKA}
+\end{equation}
+
+\section{Page 5}
+\begin{equation}
+	\sigma_d(E) = \sum_{\text{all atoms}} \sigma_e (E) \int_{E_d}^{T_{max}} P_i(E,T) \nu(T) dT
+\end{equation}
+\begin{equation}
+	\sigma_i = \text{(nuclear) microscopic cross section for reaction i (elastic, inelastic, (n,2n), (n,$\alpha$), etc.)}
+\end{equation}
+\begin{equation}
+	P_i(E,T) = \text{probability that in reaction i induced by a particle (reaction) of energy E, the PKA has a kinetic energy T}
+\end{equation}
+\begin{equation}
+	E_d = \text{displacement energy or the displacement threshhold}
+\end{equation}
+\begin{equation}
+	\nu(T) = \text{displacement energy or the displacement threshhold}
+\end{equation}
+
+\section{Page 6}
+
+\end{document}
