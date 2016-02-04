@@ -45,7 +45,7 @@ University of California Los Angeles, USA\\
 }
 \maketitle
 
-\section{Page 1}
+\section{Page 2}
 \subsection{Structural materials}
 \begin{itemize}
 \item First wall
@@ -66,7 +66,7 @@ Surface effects: Intense bombardments by charged particles (H,$\alpha$, impuriti
 
 For the next two lectures, we will focus on radiation damage and radioactivity issues.
 
-\section{Page 2}
+\section{Page 3}
 Additional definitions:
 
 Fluence = $\Phi t_{op}$
@@ -95,12 +95,12 @@ Aspect Ratio for a tokamak = $A$.
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=0.45\textwidth]{figs/fillImage.png}
+\includegraphics[width=0.45\textwidth]{figs/fig1.png}
 \caption[width=\textwidth]{Major and minor radius of toroidal reactor}
 \label{fig:reactorRadius}
 \end{figure}
 
-\section{Page 3}
+\section{Page 4}
 
 \subsection{Radiation Damage}
 Units
@@ -115,7 +115,7 @@ Useful units: dpa
 \subsection{Atomic Discplacements}
 An energetic particle such as a neutron looses its energy either by electronic excitation or by colliding with the lattice atoms. In a collision with the lattice atom an some energy is transferred into this atom if the quantity of energy transferred is larger than the energy binding the atam in its lattice the stuck atom is displaced by the bombarding particle is called the \textit{primary knock-on atom}, (PKA). Become the PKA possesses substantial kinetic energy, it becomes an energetic particle in it own right
 
-\section{Page 4}
+\section{Page 5}
 and is capable of creating additional lattice displacements. A displaced atom leaves (i.e. a point defect) its proper place leaving a vacancy behind. The displaced atom will eventually appear in the lattice as an interstitial atom (a point defect). The ensemble of point defects created by a single primary knock-on atom is known as \textit{displacement cascade}.
 
 \subsection{Atomic Displacements Calculating}
@@ -132,7 +132,7 @@ and is capable of creating additional lattice displacements. A displaced atom le
 	\sigma_d(E) = \sum_{\text{all atoms}} \text{probability that a collision occurs x the number of atoms displaced by the PKA}
 \end{equation}
 
-\section{Page 5}
+\section{Page 6}
 \begin{equation}
 	\sigma_d(E) = \sum_{\text{all atoms}} \sigma_e (E) \int_{E_d}^{T_{max}} P_i(E,T) \nu(T) dT
 \end{equation}
@@ -154,12 +154,12 @@ In order for the atom to be displaced it must receive a minimum amount of energy
 
 $E_d$ is in the range of 20 to 60 eV for ()
 
-\section{Page 6}
+\section{Page 7}
 communicated to the nearest neighbors of the stuck atom and appears as a localized source of heat. On the other hand, if $T>E_d$, the stuck atom is able to pass over the potential barrier and move off into the lattice as a displaced atom.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-  \includegraphics[width=0.45\textwidth]{figs/fillImage.png}
+  \includegraphics[width=0.45\textwidth]{figs/fig2.png}
   \end{center}
   \caption{Diagram of lattice}
 \end{wrapfigure}
@@ -168,12 +168,12 @@ In a solid, the potential barrier surrounding a lattice atom in its equilibrioum
 
 Therefore, the single value of $E_d$ employed in radiation damage theory is \textit{the spherical average of} $E_d(\theta)$ surrounding the equilibrium lattice site, $E_d$, of course, varies from one material to the other but is generally in the range of 20-60 eV.
 
-\section{Page 7}
+\section{Page 8}
 $\nu(T)$ is the number of displacements produced by a PKA with energy $T$. The value of $\nu(T)$ should be \textit{independent of the type of collision that produced the PKA}. The crux of the damage producing effect of fast neutrons is the production of displaced atoms by the primary knock-ons. Therefore the calculation of $\nu(T)$ is a very important part of the radiation damage theory.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-  \includegraphics[width=0.35\textwidth]{figs/fillImage.png}
+  \includegraphics[width=0.35\textwidth]{figs/fig3.png}
   \end{center}
   \caption{PKA collision with lattice}
 \end{wrapfigure}
@@ -182,7 +182,7 @@ There are several models that have been developed to calculate $\nu(T)$. These m
 
 There are two important observations you should be aware of regarding this assumption of two-body collisions and elasticity.
 
-\section{Page 8}
+\section{Page 9}
 \subsection{Handwritten}
 The primary collision assumption is quite satisfactory at high interaction energies because the approach distance giving substantial energy transfer are very much smaller than the distances between lattice atoms, \IDK the collisions can be considered to occur between isolated pairs of atoms. However, at low energies appoaching the threshold $E_d$, the cross section for atom-atom interaction is large, and the incoming atom can interact with more than one atom at the same time.
 
@@ -191,8 +191,71 @@ The collision between a recoil and a lattice atom is often assumed to be elastic
 
 Not all the energy transferred to a stationary lattice atom by a recoil atom by process 1 is used to displace the former. A substantial portion of the initial energy of the PKA is degraded to heat by atom-atom collisions that do not deliver the requisite displacement energy to the struck atom. In this event the struck atom simply rattles about in its lattice site, ultimately degrading the energy it recieved in the collision to heat.
 
-\section{Page 9}
+\section{Page 10}
 
 \section{Typed (on a typewriter)}
+
+The helium or hydrogen production rate in material j due to nuclear transmutation can be calculated from
+
+\begin{equation}
+	R_{\alpha}(\vec{\mathbf{r}}) = \int N_j(\vec{\mathbf{r}}) \sigma_{(n,\alpha)j}(E)_{\phi}(\vec{\mathbf{r}},E) dE
+\end{equation}
+and
+\begin{equation}
+	R_{H}(\vec{\mathbf{r}}) = \int N_j(\vec{\mathbf{r}}) \sigma_{(n,p)j}(E)_{\phi}(\vec{\mathbf{r}},E) dE
+\end{equation}
+The helium and hydrogen production rate distributions per 14 MeV neutron leaving the plasma that were calculated for representative blankets are shown in Figures 9.4.2 and 9.4.3.
+
+The helium and hydrogen concentration are commonly expressed in terms of the number of He or H atoms per million lattice atoms, or in atomic parts per million (appm).
+
+Table 9.4.1 summarizes the displacements and He and H concentrations that would result from a neutron fluence of 1 $MW y/m^2$ $(4.48\times 10^{17}$ 14 MeV neutrons per $m^2$) incident upon various materials.
+\begin{table}
+\centering
+\begin{tabular}{|lccc|}
+\hline
+Material & dpa & appm He & appm H \\
+\hline
+316SS & 10 & 200  & 540   \\
+Nb    & 7  & 24   & 79    \\
+Mo    & 8  & 47   & 95    \\
+V     & 12 & 57   & 100   \\
+C     & 10 & 2700 & small \\
+Be    &    & 2800 & 130   \\
+\hline
+\end{tabular}
+\caption{Primary response characteristics (Neutron Fluence of 1 ME $y/m^2$)}
+\end{table}
+
+
+\section{Pages 11-14}
+
+\begin{figure}
+  \includegraphics[width=0.45\textwidth]{figs/fig4.png}
+  \includegraphics[width=0.45\textwidth]{figs/fig6.png}
+  \includegraphics[width=0.45\textwidth]{figs/fig5.png}
+  \includegraphics[width=0.45\textwidth]{figs/fig7.png}
+  \caption{PKA collision with lattice}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/fig8.png}
+  \caption{Comparison of Atomic Discplacement for Vanadium, Niobium and Stainless Steel}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/fig9.png}
+  \caption{Comparison of Helium Production in Vanadium, Niobium and Stainless Steel}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/fig10.png}
+  \caption{Comparison of Hydrogen Production in Vanadium, Niobium and Stainless Steel}
+\end{figure}
+
+\section{Page 15}
+\subsection{Material Properties Changes (radiation effects)}
+The primary responses...
+
 
 \end{document}
