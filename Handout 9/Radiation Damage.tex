@@ -1,5 +1,24 @@
-\documentclass[11pt]{article}
-\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+
+% This is a simple template for a XeLaTeX document using the "article" class,
+% with the fontspec package to easily select fonts.
+
+\documentclass[11pt]{report} % use larger type; default would be 10pt
+\usepackage{fontspec} % Font selection for XeLaTeX; see fontspec.pdf for documentation
+\defaultfontfeatures{Mapping=tex-text} % to support TeX conventions like ``---''
+\usepackage{xunicode} % Unicode support for LaTeX character names (accents, European chars, etc)
+\usepackage{xltxtra} % Extra customizations for XeLaTeX
+% \fontspec{"[DroidSerif.ttf]"}
+% \setmainfont{Droid Serif} % set the main body font (\textrm), assumes Charis SIL is installed
+%\setsansfont{Deja Vu Sans}
+%\setmonofont{Deja Vu Mono}
+\usepackage{amsmath}
+\usepackage{xfrac}
+% \usepackage{xfrac,unicode-math}
+% \setmathfont[version=cambria]{Cambria Math}
+% \mathversion{cambria}
+\usepackage{cleveref}
 \usepackage{epstopdf}
 \usepackage{amsmath}
 \usepackage{hyperref}
@@ -12,38 +31,26 @@
 \usepackage{subfigure}
 \usepackage{setspace}
 \usepackage{tabularx,ragged2e,booktabs,caption}
-
 \usepackage{wrapfig}
 
-\setlength{\oddsidemargin}{0.1in}
-\setlength{\textwidth}{7.25in}
+% other LaTeX packages.....
+\usepackage{geometry} % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+%\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
-\setlength{\topmargin}{-1in}     %\topmargin: gap above header
-\setlength{\headheight}{0in}     %\headheight: height of header
-\setlength{\topskip}{0in}        %\topskip: between header and text
-\setlength{\headsep}{0in}        
-\setlength{\textheight}{692pt}   %\textheight: height of main text
-\setlength{\textwidth}{7.5in}    % \textwidth: width of text
-\setlength{\oddsidemargin}{-0.5in}  % \oddsidemargin: odd page left margin
-\setlength{\evensidemargin}{0in} %\evensidemargin : even page left margin
-\setlength{\parindent}{0.25in}   %\parindent: indentation of paragraphs
-\setlength{\parskip}{0pt}        %\parskip: gap between paragraphs
-\setlength{\voffset}{0.5in}
-
+\usepackage{graphicx} % support the \includegraphics command and options
 \newcommand{\IDK}{*** I DON'T KNOW THIS WORD***}
 
-% Useful commands:
+\title{237D Fusion Technology \\
+Handout v. 9.1}
+\author{Professor Mohamed Abdou}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
 
-% \hfill		aligns-right everything right of \hfill
 
 \begin{document}
-\doublespacing
-\title{Radiation Damage in FW and Blanket Structural Materials and Superconducting Magnetic Materials}
-\author{M. Abdou \\
-Department of Mechanical and Aerospace Engineering \\
-University of California Los Angeles, USA\\
-}
 \maketitle
+\chapter{Radiation Damage in FW/Blanket Structural Materials and Superconducting Magnet Materials}
 
 \section{Page 2}
 \subsection{Structural materials}
@@ -69,35 +76,52 @@ For the next two lectures, we will focus on radiation damage and radioactivity i
 \section{Page 3}
 Additional definitions:
 
-Fluence = $\Phi t_{op}$
+\begin{equation}
+	\text{Fluence} \equiv \Phi t_{op}
+\end{equation}
 
 \begin{equation}
-	\text{Fluence} = \Phi t_{op}
+  \Phi = \text{neutron flux}
 \end{equation}
+
+\begin{align}
+  t_{op} & = \text{exposure time} \\
+         & = \underbrace{\text{time elapsed}}_{t} \times \underbrace{\text{availability}}_{F}
+\end{align}
 
 \begin{equation}
 	F = \text{plant availability} = \frac{\text{operating time}}{\text{operating time + shutdown time}}
 \end{equation}
-
-Integrated neutron wall load
-
+% Integrated neutron wall load
 \begin{align}
-I_w &= P_{nw} t_{op},  \qquad \qquad [MW y/m^2]     \\
-	&= P_{nw} t F
+  I_w & \equiv \text{Integrated Neutron Wall Load} \\
+      & = P_{nw} \times t_{op},  \qquad \qquad [\text{MW y/m}^2] \\
+      & = P_{nw} \times t \times F
 \end{align}
 
-Commonly we measure first wall life in units of $MW y/m^2$
-Aspect Ratio for a tokamak = $A$.
+% \begin{align}
+% I_w &= P_{nw} t_{op},  \qquad \qquad [MW y/m^2]     \\
+%   	&= P_{nw} t F
+% \end{align}
 
-\begin{equation}
-	A = \frac{\text{(plasma) major radius}}{\text{(plasma) minor radius}}
-\end{equation}
+Commonly we measure first wall life in units of MW y/m$^2$
+% Aspect Ratio for a tokamak $\equiv A$.
+
+\begin{align}
+  A & \equiv \text{Aspect Ratio for a tokamak} \\
+    & = \frac{\text{(plasma) major radius}}{\text{(plasma) minor radius}} \\
+    & = \frac{R_0}{a}
+\end{align}
+
+% \begin{equation}
+% 	A = \frac{\text{(plasma) major radius}}{\text{(plasma) minor radius}}
+% \end{equation}
 
 \begin{figure}[!htp]
-\centering
-\includegraphics[width=0.45\textwidth]{figs/fig1.png}
-\caption[width=\textwidth]{Major and minor radius of toroidal reactor}
-\label{fig:reactorRadius}
+  \centering
+  \includegraphics[width=0.45\textwidth]{sketches/sketch1.png}
+  \caption[width=\textwidth]{Major and minor radius of toroidal reactor}
+  \label{fig:reactorRadius}
 \end{figure}
 
 \section{Page 4}
@@ -111,6 +135,13 @@ Total flux ~ a factor of 10 higher than 14 MeV neutron current
 neutron spectrum provides improvement but it is awkward.
 
 Useful units: dpa
+
+\IDK
+
+Gas production (He,H)
+
+Important for different \IDK mechanics  but both are \IDK for synergistic effects.
+appm for transmutation products
 
 \subsection{Atomic Discplacements}
 An energetic particle such as a neutron looses its energy either by electronic excitation or by colliding with the lattice atoms. In a collision with the lattice atom an some energy is transferred into this atom if the quantity of energy transferred is larger than the energy binding the atam in its lattice the stuck atom is displaced by the bombarding particle is called the \textit{primary knock-on atom}, (PKA). Become the PKA possesses substantial kinetic energy, it becomes an energetic particle in it own right
@@ -129,18 +160,18 @@ and is capable of creating additional lattice displacements. A displaced atom le
 	\sigma_d = \text{displacement cross section}
 \end{equation}
 \begin{equation}
-	\sigma_d(E) = \sum_{\text{all atoms}} \text{probability that a collision occurs x the number of atoms displaced by the PKA}
+	\sigma_d(E) = \sum_{\text{all collisions}} \text{probability that a collision occurs} \times \text{the number of atoms displaced by the PKA}
 \end{equation}
 
 \section{Page 6}
 \begin{equation}
-	\sigma_d(E) = \sum_{\text{all atoms}} \sigma_e (E) \int_{E_d}^{T_{max}} P_i(E,T) \nu(T) dT
+	\sigma_d(E) = \sum_{\text{all \IDK}} \sigma_e (E) \int_{E_d}^{T_{max}} P_i(E,T) \nu(T) dT
 \end{equation}
 \begin{equation}
 	\sigma_i = \text{(nuclear) microscopic cross section for reaction i (elastic, inelastic, (n,2n), (n,$\alpha$), etc.)}
 \end{equation}
 \begin{equation}
-	P_i(E,T) = \text{probability that in reaction i induced by a particle (reaction) of energy E, the PKA has a kinetic energy T}
+	P_i(E,T) = \text{probability that in reaction i induced by a particle (neutron) of energy E, the PKA has a kinetic energy T}
 \end{equation}
 \begin{equation}
 	E_d = \text{displacement energy or the displacement threshhold}
@@ -159,7 +190,7 @@ communicated to the nearest neighbors of the stuck atom and appears as a localiz
 
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-  \includegraphics[width=0.45\textwidth]{figs/fig2.png}
+  \includegraphics[width=0.45\textwidth]{sketches/sketch2.png}
   \end{center}
   \caption{Diagram of lattice}
 \end{wrapfigure}
@@ -173,7 +204,7 @@ $\nu(T)$ is the number of displacements produced by a PKA with energy $T$. The v
 
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
-  \includegraphics[width=0.35\textwidth]{figs/fig3.png}
+  \includegraphics[width=0.35\textwidth]{sketches/sketch3.png}
   \end{center}
   \caption{PKA collision with lattice}
 \end{wrapfigure}
@@ -208,7 +239,7 @@ The helium and hydrogen production rate distributions per 14 MeV neutron leaving
 
 The helium and hydrogen concentration are commonly expressed in terms of the number of He or H atoms per million lattice atoms, or in atomic parts per million (appm).
 
-Table 9.4.1 summarizes the displacements and He and H concentrations that would result from a neutron fluence of 1 $MW y/m^2$ $(4.48\times 10^{17}$ 14 MeV neutrons per $m^2$) incident upon various materials.
+Table 9.4.1 summarizes the displacements and He and H concentrations that would result from a neutron fluence of 1 MW y/m$^2$ $(4.48\times 10^{17}$ 14 MeV neutrons per m$^2$) incident upon various materials.
 \begin{table}
 \centering
 \begin{tabular}{|lccc|}
@@ -223,34 +254,41 @@ C     & 10 & 2700 & small \\
 Be    &    & 2800 & 130   \\
 \hline
 \end{tabular}
-\caption{Primary response characteristics (Neutron Fluence of 1 ME $y/m^2$)}
+\caption{Primary Response Characteristics (Neutron Fluence of 1 MW y/m$^2$)}
 \end{table}
 
 \newpage
 \section{Pages 11-14}
 
 \begin{figure}[h!]
-  \includegraphics[width=0.45\textwidth]{figs/fig4.png}
-  \includegraphics[width=0.45\textwidth]{figs/fig6.png}
-  \includegraphics[width=0.45\textwidth]{figs/fig5.png}
-  \includegraphics[width=0.45\textwidth]{figs/fig7.png}
+  \includegraphics[width=0.45\textwidth]{figs/PowerDensity.png}
+  \label{fig:PowerDensity}
+  \includegraphics[width=0.45\textwidth]{figs/Bfield.png}
+  \label{fig:Bfield}
+  \includegraphics[width=0.45\textwidth]{figs/tritiumProduction.png}
+  \label{fig:tritiumProduction}
+  \includegraphics[width=0.45\textwidth]{figs/damageParameters.png}
+  \label{fig:damageParameters}
   \caption{PKA collision with lattice}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig8.png}
+  \includegraphics[width=0.45\textwidth]{figs/dpa.png}
   \caption{Comparison of Atomic Discplacement for Vanadium, Niobium and Stainless Steel}
+  \label{fig:dpa}
 \end{figure}
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig9.png}
+  \includegraphics[width=0.45\textwidth]{figs/HeProduction.png}
   \caption{Comparison of Helium Production in Vanadium, Niobium and Stainless Steel}
+  \label{fig:HeProduction}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig10.png}
+  \includegraphics[width=0.45\textwidth]{figs/HProduction.png}
   \caption{Comparison of Hydrogen Production in Vanadium, Niobium and Stainless Steel}
+  \label{fig:HProduction}
 \end{figure}
 
 \section{Page 15}
@@ -280,15 +318,15 @@ The primary responses (displacements and transmutations) cause changes in the ep
 The properties of structural materials are affected by neutron radiation in many different ways. Displacements produce interstitial atoms and lattice vacancies in pairs. The interstitials are highly mobile and insoluble, so that they tend to form loops, leaving an excess of vacancies in the lattice. These vacancies precipitate into 
 
 \section{Page 16}
-three-dimensional voids if the temperature is sufficiently high and if there are nucleation sites. This microstructural change has no macroscopic effect until after a certain threshold dpa level has been reached, after which the material begins to swell. After the incubation dose has been exceeded, the volumetric swelling in structural materials increases linearly with dpa. The projected swelling rate for a modified stainless steel is shown in Figure ***NAME FIGURE***. The swelling characteristics are material- and temperature-dependent.
+three-dimensional voids if the temperature is sufficiently high and if there are nucleation sites. This microstructural change has no macroscopic effect until after a certain threshold dpa level has been reached, after which the material begins to swell. After the incubation dose has been exceeded, the volumetric swelling in structural materials increases linearly with dpa. The projected swelling rate for a modified stainless steel is shown in Figure \ref{fig:swelling}. The swelling characteristics are material- and temperature-dependent.
 
-Hardening of the lattice matrix in the grains of metals due to displacements causes deformation to occur along grain boundaries under stress. Helium collects on the grain boundaries, aggravating the problem by interferring with grain boundary sliding, which would otherwise relieve the stress. This process produces microcracks which eventually lead to fracture. One measure of ductility is the percentage of tensile elongation that is permissible without fracture. The effect of neutron radiation damage upon the tensile elongation of 316 stainless steel is dipicted in Figure FIGURE. 
+Hardening of the lattice matrix in the grains of metals due to displacements causes deformation to occur along grain boundaries under stress. Helium collects on the grain boundaries, aggravating the problem by interferring with grain boundary sliding, which would otherwise relieve the stress. This process produces microcracks which eventually lead to fracture. One measure of ductility is the percentage of tensile elongation that is permissible without fracture. The effect of neutron radiation damage upon the tensile elongation of 316 stainless steel is dipicted in Figure \ref{fig:elongation}. 
 
 Defects caused by displacements can act as barriers to dislocation motion, causing metals to become stronger. The yield strength of austenitic stainless steels will generally increase under neutron irradiation by as much as a factor of ~3.
 
 Materials under thermal stress tend to slowly deform to relieve that stress, a process known as thermal creep. Neutron radiation has been observed to enhance the normal thermal creep rate. The additional "irradiation" creep is proportional to dpa.
 
-When a structural material is repetitively cycled under a loading that produces a strain $\varepsilon$ it will eventually fail. The number of cycles to failure is directly related to the magnitude of the strain. When a material is irradiated with neutrons, this "fatigue" lifetime is decreased, as illustrated in Figure FIGURE.
+When a structural material is repetitively cycled under a loading that produces a strain $\varepsilon$ it will eventually fail. The number of cycles to failure is directly related to the magnitude of the strain. When a material is irradiated with neutrons, this "fatigue" lifetime is decreased, as illustrated in Figure \ref{fig:fatigueLife}.
 
 If a small flaw exists in a structural component, that flaw will grow under a cyclic loading until fracture takes place. The fracture mechanism is plastic instability on a local scale. The resistance to flaw growth can be characterized by a parameter known as fracture toughness. Neutron radiation reduces the fracture toughness of structural materials.
 
@@ -296,55 +334,71 @@ If a small flaw exists in a structural component, that flaw will grow under a cy
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig11.png}
+  \includegraphics[width=0.45\textwidth]{figs/swelling.png}
   \caption{Projected swelling for Ti-modified austenitic SS in fusion reactor service based on behavior of similar alloys in EBR-II and HFIR at low exposures. Alloys currently being developed are expected to fall in the lower portion of the band.}
+  \label{fig:swelling}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig12.png}
+  \includegraphics[width=0.45\textwidth]{figs/elongation.png}
   \caption{Maximum and minimum values anticipated for tensile elongation of 316 SS as a function of fluence.}
+  \label{fig:elongation}
 \end{figure}
 
 \section{Pages 18}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig13.png}
+  \includegraphics[width=0.45\textwidth]{figs/fatigueLife.png}
   \caption{Fatigue Life of 20\% Cold-Worked Type 316}
+  \label{fig:fatigueLife}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig15.png}
+  \includegraphics[width=0.45\textwidth]{sketches/sketch4.png}
   \caption{Sketch of .}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig14.png}
+  \includegraphics[width=0.45\textwidth]{sketches/sketch5.png}
   \caption{Sketch of vs magnetic field for various temperatures.}
 \end{figure}
 
-Superconducting magneti components are adversely affected by radiation also. The effect of neutron radiation on the superconductor itself is to diminish the superconducting region of current density-temperature-magnetic field phase space. The critical current density of Nb$_3$Sn has been observed to change above ~$1.5\times 10^{-3}$ dpa ($3\times 10^{22}$ n/m$^2$). The effect is much less pronounced for NbTi, with a decrease of less than a factor of 2 being observed at fluences up to $10^{24}$ n/m$^2$. These data are shown in Figure FIGURE.
+Superconducting magneti components are adversely affected by radiation also. The effect of neutron radiation on the superconductor itself is to diminish the superconducting region of current density-temperature-magnetic field phase space. The critical current density of Nb$_3$Sn has been observed to change above ~$1.5\times 10^{-3}$ dpa ($3\times 10^{22}$ n/m$^2$). The effect is much less pronounced for NbTi, with a decrease of less than a factor of 2 being observed at fluences up to $10^{24}$ n/m$^2$. These data are shown in Figure \ref{fig:irradiationEffect}.
 
 \section{Page 19}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig16.png}
+  \includegraphics[width=0.45\textwidth]{figs/irradiationEffect.png}
   \caption{Effect of Neutron Irradiation on the Critical Current in NbTi and Nb$_3$Sn.}
+  \label{fig:irradiationEffect}
 \end{figure}
 
-The resistance of normal conductors, which are used for cryogenic stability, at 4.2 K increases dramatically with dpa, as illustrated in Figure FIGURE.
+The resistance of normal conductors, which are used for cryogenic stability, at 4.2 K increases dramatically with dpa, as illustrated in Figure \ref{fig:resistivity}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/fig17.png}
+  \includegraphics[width=0.45\textwidth]{figs/resistivity.png}
   \caption{Radiation Induced Resistivity of Copper and Aluminum.}
+  \label{fig:resistivity}
 \end{figure}
 
-The organic insulators...
+The organic insulators that are used in superconducting magnets have been observed to physically deteriorate from neutron damage in the range 2-5$\times 10^{22}$ n/m$^2$. Inorganic insulators, on the other hand, retain their physical properties up to damage in excess of $10^{25}$ n/m$^2$. However, the inorganic insulators are brittle. There are indications that neutron radiation-induced microstructural change in granular solid breeding materials (see Section 10.1) may significantly reduce the tritium release properties. Tritium trapping at radiation-induced defects could be significant. Radiation-induced sintering could lead to reduction in porosity, which would reduce the tritium migration. The size of the basic grains could grow under radiation, leading to reduced tritium diffusion out of the grains in which it is produced.
 
+\subsection{Radioactivity (crossed off)}
+Many of the new isotopes produced by nuclear transmutations following neutron capture (e.g. (n,$\gamma$), (n,$\alpha$), (n,p), (n,2n)) are unstable and will, over a period of time, decay by the emission of a charged particle. The resulting isotope may itself be unstable and undergo further decay, thus leading to a so-called decay-chain. The nuclide densities of the isotopes in a given decay chain are described by the set of equations
+
+\begin{equation}
+  \frac{d N_i(\vec{\mathbf{r}},t)}{dt} = 
+  - (\lambda_i + \overline{\sigma}_i \overline{\phi}(\vec{\mathbf{r}})) N_i(\vec{\mathbf{r}},t) +
+  \sum_{j \ne i}^{J} (\lambda_j + \overline{\sigma}_{j-i} \overline{\phi}(\vec{\mathbf{r}})) N_j(\vec{\mathbf{r}},t),
+  \qquad i=1,...,J
+\end{equation}
+
+Here, $\lambda_i$ is the radioactive decay constant for isotope $i$ and $\alpha_{j \rightarrow i}$ is the probability that the decay of isotope $j$ leads to isotope $i$ (e.g.) if the
 
 \end{document}
