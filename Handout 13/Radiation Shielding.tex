@@ -202,6 +202,132 @@ These pages were already in handout 9.
 
 \section{Page 16}
 \subsection{Motive for Smaller Blanket / Shield Thickness}
+\underline{Effect on Reactor Power}
+\begin{equation}
+  P \sim B_t^4
+\end{equation}
+$B_t = $ magnetic field at the plasma center.
+\begin{equation}
+  B_t = B_m \left( 1 - \frac{1}{A_w} - \frac{\Delta_{BS}^i}{R} \right)
+\end{equation}
 
+$B_m = $ maximum magnetic field (at coil windings)
+
+$A_w = $ aspect ratio \IDK $ = /R$
+
+$R = $ major radius
+
+$\Delta_{BS}^i = $ blanket/shield thickness on the inside of the terms
+
+\begin{equation}
+  \frac{B_t}{B_m} = \frac{R-a-\Delta_v - \Delta_{w} - \Delta_{\IDK} - \Delta_s - \Delta_{gap}}{R}
+\end{equation}
+
+\section{Page 17}
+\subsection{Motives for Smaller Blanket / Shield Thickness}
+\underline{Effects on TF and OH Magnetic Field Requirements}
+\begin{equation}
+  B_t = B_m \left( 1 - \frac{1}{A_w} - \frac{\Delta_{BS}^i}{R} \right)
+\end{equation}
+
+For a fixed reactor power, $B_t$ is fixed.
+Increasing $\Delta_{BS}^i$ increases $B_m$.
+
+TF magnet cost $\sim B_m^2$ (also technology requirements).
+
+Increases TF magnet thickness $t_m$.
+
+Reduces central core radius, $R_v$.
+
+\begin{equation}
+  R_v = R - \Delta_{BS}^i - t_m - t_s
+\end{equation}
+
+Decreases $R_v$ + increases OH field.
+
+\begin{equation}
+  B_{OH} \sim \frac{1}{R_v^2}
+\end{equation}
+
+Cost of OH power supply $\sim \frac{1}{R_v^4} \sim (\Delta_{BS}^i)^4 $
+
+\section{Pages 18-21}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/power.png}
+  \caption{.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/neutronFluence.png}
+  \caption{.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/dose.png}
+  \caption{.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/radInducedResistivity.png}
+  \caption{.}
+\end{figure}
+
+\section{Page 22}
+\subsection{Definitions}
+\underline{Neutron Wall Loading, $P_w$}
+
+\begin{equation}
+  P_w = J_w E_0
+\end{equation}
+
+$J_w = $ neutron current of fusion neutrons at the first wall
+
+$E_0 = $ fusion neutron energy (14.06 MeV for D-T cycle)
+
+$P_w$ is measured in units of MW/m$^2$ ($\sim$1-5)
+
+(1 MW/m$^2$) corresponds to $J_w = 4.43\times 10^{17}$ n/m$^2$.
+
+For a given reactor, the neutron flux at the magnet $= P_w$.
+
+\underline{Integral Neutron Wall Loading, $I_w$}
+\begin{equation}
+  I_w = P_w \times t_0 \times F
+\end{equation}
+
+$t_0 =$ operation period
+
+$F =$ plant capacity factor ($\sim$0.7-0.9)
+
+$I_w$ is measured in units of MW-yr/m$^2$
+
+For a given reactor the neutron fluence at the magnet is $I_w$
+
+\begin{equation}
+  \text{Fluence} = \phi t = \underbrace{\phi}_{n/m^2\times s} \times F \times t_{op}
+\end{equation}
+
+
+\section{Page 23-25}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/fieldAtSurfaceOfConductor.png}
+  \caption{.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/ohmicHeating.png}
+  \caption{.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figs/cost.png}
+  \caption{.}
+\end{figure}
 
 \end{document}
