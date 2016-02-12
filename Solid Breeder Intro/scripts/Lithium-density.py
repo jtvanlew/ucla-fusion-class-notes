@@ -58,23 +58,22 @@ NA = 6.022e23
 NLi = np.zeros(len(A))
 
 
-fig, ax1 = plt.subplots()
-ax1.set_ylim([1000, 2000])
-ax1.set_ylabel("Melt Temperature (K)")
-ax2 = ax1.twinx()
-ax2.set_ylabel(r"Lithium atom density $\times 10^{-23}$ (#/cm$^3$)")
-ax2.set_ylim([0, 1])
+# #fig, ax1 = plt.subplots()
+# #ax1.set_ylim([1000, 2000])
+# plt.ylabel("Melt Temperature (K)")
+plt.ylabel(r"Lithium atom density $\times 10^{-23}$ (#/cm$^3$)")
+#ax2.set_ylim([0, 1])
 x_ticks = []
 for i, key in enumerate(A):
-	ax1.scatter(i, A[key]['Tmelt'], color = color_idx[0], s = 40)
+	#ax1.scatter(i, A[key]['Tmelt']*0.6, color = color_idx[0], s = 40)
 	NLi[i] = (A[key]['density']*NA/A[key]['mol_mass'])*A[key]['num']/10**23
-	ax2.scatter(i, NLi[i], color = color_idx[1], s = 40)
+	plt.scatter(i, NLi[i], color = color_idx[0], s = 60)
 	x_ticks.append(A[key]['name'])
-for tl in ax1.get_yticklabels():
-    tl.set_color(color_idx[0])
-for tl in ax2.get_yticklabels():
-    tl.set_color(color_idx[1])
+# for tl in ax1.get_yticklabels():
+#     tl.set_color(color_idx[0])
+# for tl in ax2.get_yticklabels():
+#     tl.set_color(color_idx[1])
 x = range(len(A))
-plt.xticks(x, x_ticks, rotation='vertical')
+plt.xticks(x, x_ticks)#, rotation='vertical')
 plt.grid('on', 'both')
 plt.show()
