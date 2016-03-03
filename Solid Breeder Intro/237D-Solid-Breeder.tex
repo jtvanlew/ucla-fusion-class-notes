@@ -9,8 +9,8 @@
 \defaultfontfeatures{Mapping=tex-text} % to support TeX conventions like ``---''
 \usepackage{xunicode} % Unicode support for LaTeX character names (accents, European chars, etc)
 \usepackage{xltxtra} % Extra customizations for XeLaTeX
-% \fontspec{"[DroidSerif.ttf]"}
-% \setmainfont{Droid Serif} % set the main body font (\textrm), assumes Charis SIL is installed
+\fontspec{"[DroidSerif.ttf]"}
+\setmainfont{Droid Serif} % set the main body font (\textrm), assumes Charis SIL is installed
 %\setsansfont{Deja Vu Sans}
 %\setmonofont{Deja Vu Mono}
 \usepackage[colorlinks,citecolor=red,linkcolor=blue]{hyperref}
@@ -44,7 +44,8 @@
 \newcommand{\ddt}[1]{
 \frac{\mathrm{d}^2{#1}}{\mathrm{d}t^2}}
 
-
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\neutron{n}
 
 \title{237D Fusion Technology \\
 Introduction to Solid Breeder}
@@ -55,7 +56,9 @@ Introduction to Solid Breeder}
 
 \begin{document}
 \maketitle
-\chapter{Solid Breeder Technology Development}
+\tableofcontents
+
+\chapter{Solid Breeder Material Technology}
 Aside from liquid lithiums (covered in separate lectures in this course), solid lithium materials are potential candidates for tritium generation in fusion power plants. Many different potential solid materials have been studied in the past; including inter-metallic compounds (\textit{e.g.} \ce{Li7Pb2}), lithium oxide (\lio), and ternary oxides (\textit{e.g.} \lis, \lit, \lial, \liz, \textit{etc.}). Solid breeder materials offer a number of potential safety advantages including relatively low tritium mobility and low stored chemical energy.
 
 Over the years, the fusion community has come to recognize that lithium-based oxides (including ceramic oxides) are best candidate tritium-breeding materials for fusion reactor blankets. This conclusion is based on oxides having many desirable characteristics, such as: 
@@ -144,13 +147,13 @@ Vapor pressure, phase equilibria, thermal stability, and thermodynamics are seve
 
 A major concern of candidate materials is the solubility of tritium in the material; too high solubility will lead to unacceptable levels of tritium inventory. A simplified calculation can be performed on the lithium oxides to predict the function of \ce{T2O} partial pressure in gas phase. Assuming: 1) thermochemical data of hydrogen applies to tritium; 2) isotope effects are not considered; 3) tritium exists in the form of \ce{LiOT} in solid solution; and 4) activity coefficients of all species are unity. We can then calculate the partial pressure of oxides as:
 \begin{align}\label{eq:liot-equilibrium}
-\ce{2LiOT + MO_X <=> Li2MO_{X+1}}
+\ce{2LiOT + MO_y <=> Li2MO_{y+1}}
 \end{align}
 and
 \begin{align}
 p(T_2O) = X_MX^2K_p
 \end{align}
-where $p(T_2O)$ is the partial pressure of \ce{T2O}, $X$ is the mole fraction of LiOT, and $X_M$ is the mole fraction of the binary metal oxide (\textit{e.g.} \ce{TiO3}). 
+where $p(T_2O)$ is the partial pressure of \ce{T2O}, $X$ is the mole fraction of LiOT, and $X_M$ is the mole fraction of the binary metal oxide (\textit{e.g.} \ce{TiO2}). 
 
 As neutrons transmute lithium from the ceramic, the stoichiometry of the material will begin to change. There is great uncertainty in the activity of lithium-depleted species. The lithium depleted species may not exist in the simple metal oxide form (\textit{e.g.} \ce{Al2O3}) but most probably another ternary compound (\textit{e.g.} \ce{LiAl5O8}). In the examples of lithium aluminate, \ce{LiAl5O8} is more stable than \ce{LiAl2O3} and therefore free energy changes and $k_p$ values for reactions may be overestimated. Moreover, the composition of the breeding material continuously changes during operation of the blanket because of lithium burn-up. Because tritium is being removed from the blanket, the mole fraction of \ce{LiOT} will reach a constant value. However, the concentration of other specie (metal oxides) will continuously increase.
 
@@ -178,8 +181,8 @@ Although there is considerable uncertainty in many of the terms of \Cref{eq:liot
 Tritium recovery from solid tritium-breeding materials is a key factor in establishing the viability of the solid-breeder concept. Designs of solid breeders have tritium removed with a purge gas (primarily helium) flowing through the open porosity of packed beds of lithium ceramics. The feasibility of the solid breeder concept is based on the capability of tritium to readily transport from the solid ceramic into the purge gas. Tritium release is a function of grain size, microsctructure, and open/closed porosity. To understand the capability of tritium removal, five mechanistic steps are identified for bred tritium to be recovered (visualized in \Cref{fig:mechanisms_tritium_transport}) . The steps follow as
 \begin{enumerate}
 \item bulk diffusion,
-\item desorption of tritium (T$_2$O),
 \item grain boundary migration,
+\item desorption of tritium (T$_2$O),
 \item percolation of tritium through pores internal to the solid ceramic toward the flowing purge gas,
 \item convective mass transfer out of the blanket via purge channels.
 \end{enumerate}
@@ -210,7 +213,7 @@ The tritium generation rate, $\dot{T}$ is a function of the fusion reactor power
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{images/Tmin} 
+	\includegraphics[width=0.9\textwidth]{images/Tmin} 
 	\caption{Minimum temperatures for various candidate materials (compiled from various sources) based on rate-limiting diffusion processes.}
 	\label{fig:Tmin}
 \end{figure}
@@ -219,7 +222,7 @@ As we saw from \Cref{eq:inventory-diff}, tritium inventory goes with the square 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{images/material-production-NFRI} 
+	\includegraphics[width=0.9\textwidth]{images/material-production-NFRI} 
 	\caption{Maximum temperatures for various candidate materials (compiled from various sources) based on irradiated sintering temperatures ($0.6T_\text{melt}$).}
 	\label{fig:material-production-NFRI}
 \end{figure}
@@ -228,7 +231,7 @@ Moreover, neutron radiation typically enhances sintering characteristics and low
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\textwidth]{images/Tmax} 
+	\includegraphics[width=0.9\textwidth]{images/Tmax} 
 	\caption{Maximum temperatures for various candidate materials (compiled from various sources) based on irradiated sintering temperatures ($0.6T_\text{melt}$).}
 	\label{fig:Tmax}
 \end{figure}
@@ -243,18 +246,17 @@ The temperature window established for tritium release dictates the thermal char
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.45\textwidth]{images/k_s} 
-	\caption{.}
+	\caption{Solid conductivities of several ceramic materials, assuming 80\% theoretical density.}
 	\label{fig:k_s}
 \end{figure}
 
-The Young's modulus for ceramic materials 
-% The material integrity is a function of pebble size distribution, sphericity, mechanical strength, chemical stability.
-% \lit~has acceptable Li density, not hygroscopic, has lower activation, similar T release to \liz. Mechanically stronger than \lis.
-% \lis~has weak crush strength, acceptable Li density, stable (can't read my notes)
+Elastic modulii of material is a manifestation of atomic bond strength and can thus provide qualitative information on lattice defects.\cite{Johnson1988} In irradiation experiments of \lial with a fluence of $10^20$ neutrons cm$^-2$, no change in Young's modulus was observed up to \SI{400}{\celsius} though approximately 10\% reduction in Young's modulus was found at \SI{600}{\celsius}. At the same higher temperature, no change was found for \lio. Compressive strength was also measured for \lial~to be a relatively strong function of temperature (decreasing with increased temperature) but not irradiation, up to 2 at.\% burn-up.
+
+A comprehensive review of \lit~material properties can be found in Ref.\cite{Gierszewski1998} Many properties of \lis~can be found in Ref.\cite{Dienst1988}
 
 \FloatBarrier 
 \subsection{Compatibility}
-Compatibility studies have been carried out at several temperatures between various pairs of breeder and structural materials.\cite{Johnson1988} \ce{Li5FeO4}, \ce{Li2CrO2}, and \ce{Li2Ni8O10} were common corrosion products (varying by structural material). \lio~was seen to be most reactive; reaction rates for \lis, \liz, and \lial~were much lower. However, in studies of \lio~where the material was rigorously freed of moisture impurity, \lio~was found to be inert to metals. Corrosion properties of \lio~are therefore attributed to the presence of highly corrosive LiOH contamination happening in the presence of water with \lio. In general, reaction rates increase with increasing temperature and moisture content.\cite{Johnson1991} From structure-ceramic compatibility point of view, ternary oxides such as \lit~and \lis~are more desirable.
+Compatibility studies have been carried out at several temperatures between various pairs of breeder and structural materials.\cite{Johnson1988} \ce{Li5FeO4}, \ce{Li2CrO2}, and \ce{Li2Ni8O10} were common corrosion products (varying by structural material). \lio~was seen to be most reactive; reaction rates for \lis, \liz, and \lial~were much lower. However, in studies of \lio~where the material was rigorously freed of moisture impurity, \lio~was found to be inert to metals. Corrosion properties of \lio~are therefore attributed to the presence of highly corrosive LiOH contamination happening in the presence of water with \lio. In general, reaction rates increase with increasing temperature and moisture content.\cite{Johnson1991} From compatibility point of view, ternary oxides such as \lit~and \lis~are more desirable.
 
 Compatibility of ceramic materials with neutron multiplying materials is also necessary to understand. Interaction of ternary oxide ceramics with beryllium was found to be counter to expectations based on thermodynamics and seen to be negligible up to \SI{650}{\celsius} for \lis, up to \SI{700}{\celsius} for \lial~and \liz, for durations up to 3000 hours. A beryllium oxide layer is assumed to form on the material surface, thereby protecting it from further oxidation. The SIBELIUS experiment studied the effect of neutron irradiation on the \ce{BeO} layer. Data from SIBELIUS indicate the beryllium oxide layer appears to have some influence on the amount of tritium retained by the beryllium discs. The tritium release from the ceramics, on the other hand, is consistent with other tritium release measurements of the ceramic materials in the absence of beryllium and therefore appears to not be affected by adjacent beryllium.\cite{Kopasz1995,Roux1992} 
 
@@ -292,26 +294,60 @@ and the manifestation of these atomistic changes as microstructural damage must 
 
 In lithium ceramics there are a minimum of two sublattices composed of anions and cations. Creation of more defects on one sublattice than the other, for instance on the oxygen lattice, would lead to charge separation within the matrix. If sufficient defect mobility exists, the newly formed defects can annihilate or cluster, forming voids or precipitates within the crystal. Displacement damage to lattices is quantified with a value displacements per atom, dpa. In fusion reactors, solid breeder materials will receive substantial displacement damage from high energy neutrons of the plasma. Fusion neutrons that have been slowed (from interaction with neutron multiplication or structural materials) to lower energies will produce much less displacement damage.
 
+Ceramic materials primarily conduct heat by phonon transport. Irradiation-induced vacancies act as phonon scattering centers and consequently thermal conductivity of ceramics is reduced under irradiation.\cite{Hopkins1985} Fast neutron damage can produce large populations of defects and thereby reduce room-temperature thermal conductivity of ceramics by orders of magnitude with doses $\le 1$~dpa.\cite{Snead2005} Analysis of breeding blanket modules for ITER indicate a maximum expected neutron damage in steel to be about 3 dpa over a span of 20 years of operation. By comparison, dpa levels required for DEMO are greater than 70 dpa.\cite{Giancarli2006a} Reduced thermal conductivity due to fast neutron damage is a concern for blanket designers and this study is meant to address pebble bed thermal reactions to irradiated pebbles.
+
+Neutron fluence in ITER is targeted to reach \SI{0.3}{\mega\watt\year\per\square\meter}.\cite{Abdou2015,VanHoutte2011} In terms of \SI{14}{\mega\electronvolt} neutrons, this equates to a fluence of \SI{4.22E24}{\neutron\per\meter\squared}. Kawamura \textit{et al.} carried out irradiation experiments on \lit~pebble beds to detect changes in effective thermal diffusivity. They found a reduction in thermal diffusivity of 30\% compared to unirradiated pebble beds at \SI{400}{\celsius} but report that no change in effective thermal conductivity is detectable up to thermal neutron fluence of \SI{1E24}{\neutron\per\meter\squared}. 
+
+An experimental irradiation campaign has been carried out in Petten, Netherlands as part of the European program for development of HCPB blanket concept, a high fluence irradiation project, HICU (High neutron fluence Irradiation of pebble staCks for fUsion). The high fluence irradiation of lithium ceramics was meant to be up to DEMO-relevant values of 20 to 25 dpa, even with a neutron spectra not including \SI{14.1}{\mega\electronvolt}.\cite{Hegeman2003,VanTil2012} Temperatures in ceramic regions dropped during the experimental campaign, trailing somewhat the tritium production rate and lithium burn-up. On-line temperatures were measured during the year-long experiment, temperatures in ceramic pebble regions were measured between \SIrange{600}{800}{\kelvin}. Similar to Kawamura \textit{et al.}, a significant increase in temperatures as a result of decreased thermal conductivity was not witnessed. However, careful thermal characterizations of ceramic pebble beds under irradiation were not evaluated.
+
+The experiment of Kawamura \textit{et al.} reached neutron fluence of the same order of magnitude of a years operation in ITER though only with thermal neutrons. HICU matched much of the neutron energy spectrum, save for the highly energetic fusion neutrons. Both experiments did not detect significant reductions in thermal conductivity. The results are providential for ceramic breeder regions far from first walls. Nevertheless, damage from fast neutrons in near-wall regions remains a concern.
+
 Helium generated in the solid breeder material during irradiation, owing to its inert nature, will have a much lower solubility in ceramics than tritium, since only interstitial positions are available. The lower solubility for helium will result in a lower permeability so that the rate of migration out of the lattice will be less. Moreover, low solubility will enhance bubble formation and swelling. Swelling can have significant negative consequences on the mechanical stability of ceramic pebbles.
 
 A consequence of neutron capture is loss of lithium atoms from ceramic lattices. This loss creates either a lithium vacancy or a localized excess of oxygen, \textit{i.e.} oxygen interstitials. Since tritium ions are created during the neutron capture of a lithium ion, the overall electrostatic equilibrium of the crystal is maintained. When the tritium ions are subsequently released to the purge gas, it necessarily follows that the oxygen ions must also be released in order to avoid a charge buildup in a single valency system. If multivalent ions (\textit{e.g.} \ce{Fe^{+2}}, \ce{Fe^{+3}}) are present, then a change in oxidation states would balance the charge of the excess oxygen. From this point of view, it is natural that we observe tritium released as \ce{T2O} in \lio~systems rather than as a hydrocarbon or \ce{T2}.\cite{Johnson1981}
 
-Lastly, as discussed in the discussion of thermochemistry of candidate ceramics, as lithium depletion (or lithium burn-up) occurs to a significant extent (around 5\%), the resultant nontsoichiometry in ternary oxides could establish rather than single-phase condition. For example, under irradiation and lithium burn-up, \lis~would lead to an excess of silica and the melting point of the \SI{1300}{\celsius} to a eutectic temperature of \SI{1024}{\celsius}. Such a reduction in melt temperature would have significant impact on sintering and tritium inventory in the solid breeders.\cite{Johnson1981}
+As mentioned previously, when lithium depletion (or lithium burn-up) occurs to a significant extent (around 5\%), the resultant nonstoichiometry in ternary oxides could establish, rather than single-phase conditions. For example, under irradiation and lithium burn-up, \lis~ceramics would develop an excess of silica and the melting point of \SI{1300}{\celsius} would drop to a eutectic temperature of \SI{1024}{\celsius}. Such a reduction in melt temperature would have significant impact on sintering and tritium inventory in the solid breeders.\cite{Johnson1981}
 
-This list of irradiation effects is by no means complete and irradiation experiments are ongoing.\cite{vanderLaan200099} Moreover, experiments that can recreate fusion neutron sources are necessary steps towards realizing solid breeder technology.\cite{Abdou1996d}
+Lastly, an attractive feature of fusion energy is its ability to operate in an environmentally benign way. This feature must not be lost during the choice of material candidates in the development of tritium breeding technology. One acceptable guideline put forth calls for all materials to meet requirements for near-surface burial as radioactive waste.\cite{Roux199831} Long-lived daughter nuclides of ternary oxides should be avoided during primary candidate considerations. From this perspective, \lit~and \lis~are more attractive than \liz, due to long-term radioactive characteristics of the latter.
+
+This list of irradiation effects is by no means complete and irradiation experiments are still ongoing.\cite{vanderLaan200099} Moreover, experiments that can recreate fusion neutron sources are necessary steps towards realizing solid breeder technology and are under development.\cite{Abdou1996d}
+
+
+
+\subsection{Fabrication}
+One last point to discuss on ceramic materials before moving on to a discussion of neutron multipliers concerns fabrication. Candidate ceramic material feasibility is in part dependent on the fabrication price and ability to scale to industrial output quantities. While this is an important point for realization of solid breeders, it will not be discussed in detail here. van der Laan \textit{et al.}\cite{vanderLaan200099} and Johnson \textit{et al.}\cite{Johnson1991} provide thorough descriptions and discussions for various fabrication techniques.
+
+
+
+
+
+
 
 \section{Neutron Multiplication in Solid Breeders}
-Because neutron multiplying material is a necessity for all ternary oxides, we will discuss some of the important aspects of neutron multiplication materials. Beryllium is identified as the most suitable material for neutron multiplication in solid breeders. The common reaction of \ce{9Be} is:
+Because neutron multiplying material is a necessity for all ternary oxides, we will discuss some of the important aspects of neutron multiplication materials. Beryllium is identified as the most suitable material for neutron multiplication in solid breeders. The common reaction of \ce{^9Be} is:
 \begin{align}
-\ce{n + ^9_4Be -> 2n + 2He + T}-\SI{1.57}{\mega\electronvolt}\label{eq:Be-n}
+\ce{n + ^9_4Be -> 2n + 2He + T}\label{eq:Be-n}
 \end{align}
-
-The following reaction also has small probability of occurrence (check cross-section for this reaction)
-\begin{align*}
-\ce{n + ^9_4Be -> ^4He + ^6He} \\
-\ce{^6He -> ^6Li + beta^-} \\
+with a threshold energy of about \SI{1.8}{\mega\electronvolt}. The following reaction also has small probability of occurrence
+\begin{align}
+\ce{n + ^9_4Be -> ^4He + ^6He}
+\end{align}
+with a threshold energy of about \SI{0.7}{\mega\electronvolt}. \ce{^6He} is unstable and undergoes $\beta^-$ decay into \ce{^6Li} (with 99.99\% probability and a half life of only about \SI{800}{\milli\second}), which itself may interact with high energy neutrons to form tritium inside the neutron multiplier.
+\begin{subequations}
+\begin{align}
+\ce{^6He -> ^6Li + e^-} \\
 \ce{n + ^6Li -> He + T}
-\end{align*}
+\end{align}
+\end{subequations}
+
+While the $(n,2n)$ reaction is much more likely to occur, the $(n,\alpha)$ reaction is non-negligible. Cross-sections for the two reactions are given in \Cref{fig:beryllium-xs}. The tritium-producing reactions bust be considered from a safety stand-point of tritium retention in beryllium.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{images/beryllium-xs} 
+	\caption{Beryllium cross-section for $n,2n$ and $n,\alpha$ (ENDF data from http://atom.kaeri.re.kr/).}
+	\label{fig:beryllium-xs}
+\end{figure}
 
 The melting temperature of natural beryllium is \SI{1250}{\celsius}, advantageous for solid form of neutron multiplier with solid tritium breeder. Aside from pure beryllium, other options have been considered. Beryllium will also exist as a pebble bed. 
 
@@ -337,8 +373,6 @@ As discussed previously, an alternative to pure beryllium that has been receivin
 
 Lastly, we must bear in mind limited abundance of \ce{Be} on Earth (remember Homework set). Thus we must be economical in our consumption of beryllium for neutron multiplication in fusion reactors.
 
-\subsection{Fabrication}
-One last point to discuss on ceramic materials before moving on to a discussion of neutron multipliers concerns fabrication. Candidate ceramic material feasibility is in part dependent on the fabrication price and ability to scale to industrial output quantities. While this is an important point for realization of solid breeders, it will not be discussed in detail here. van der Laan \textit{et al.}\cite{vanderLaan200099} and Johnson \textit{et al.}\cite{Johnson1991} provide thorough descriptions and discussions for various fabrication techniques.
 
 
 
@@ -365,16 +399,7 @@ One last point to discuss on ceramic materials before moving on to a discussion 
 
 
 
-
-
-
-
-
-
-
-
-
-\chapter{Introduction to Solid Breeder Designs}
+\chapter{Introduction to Solid Breeder Analysis}
 The solid breeder concept with sphere-pac beds satisfies the requirements of a breeder unit: transmute lithium into tritium, act as shield to other sensitive equipment and personnel, and convert energy into extractable heat for electricity production. Common features of pebble bed designs are:
 \begin{enumerate}
 \item{Always separately cooled with (with \textit{e.g.} helium or water)}
@@ -415,7 +440,7 @@ All heat deposited into the ceramic pebble beds is conducted towards the structu
 \end{figure}
 
 
-\subsection{Purge gas}
+\subsection{Purge Gas}
 The purge gas composition is generally helium with small amounts of hydrogen which promotes tritium release from ceramics. Flow rates of purge gas are kept low to minimize the pressure drop across tightly packed pebble beds.
 
 Pressure drop (per unit length) for the purge gas can be calculated based on the Kozeny-Carman correlation; derived for packed beds at the close-packed limit,
@@ -450,7 +475,7 @@ Lastly, one special consideration for the coolant are the safety issues of high 
 \section{Phenomenological Properties of Packed Beds}
 One approach to studying heat transfer granular material is to treat the packed bed as a fictitious continuous media. Many experiments have been carried out for developing phenomenological models of effective material properties. In this approach, heat transport in pebble beds is often characterized with an effective thermal conductivity, $k_\text{eff}$, and interface heat conductance. Many models have shown their ability to accurately predict the temperature profiles for pebble beds under specific operating conditions. We begin with a review of $k_\text{eff}$ correlations.
 
-\subsection{Empirical Models for Packed Beds}
+\subsection{Empirical Models for Heat Transfer Packed Beds}
 Deissler and Boegli, in 1958, proposed upper and lower bounds of effective thermal conductivity, $k_\text{eff}$, in two-phase granular media to be given by alternating layers of the two phases arranged in parallel or series, respectively \cite{Deissler1958}. In the case of parallel layers, effective conductivity, normalized by fluid conductivity, is
 \begin{equation}\label{eq:keff-parallel}
 	\frac{k_e}{k_f} = \epsilon + (1-\epsilon)\kappa
@@ -480,12 +505,12 @@ Over the years, many other correlations have been developed for predicting effec
 \end{figure}
 
 \subsection{Experimental Measurements of Lithium Ceramics}
-Effective conductivities have been measured for several candidate ceramics. A reliable technique for measuring conductivity in packed beds is with a hot-wire technique; the technique is thoroughly described in ASTM standard C1113/C1113M document. Briefly, hot-wire measurements are done by raising the temperature of a pebble bed up to a background value (the reported value of $k_\text{eff}(T)$), then pulsing an electric current through a wire embedded in the bed. The pulse of heat on the wire decays as energy is conducted into the pebble bed. The rate of decay provides information on effective thermal diffusivity and thermal conductivity of the packed bed. A sketch of a hot-wire setup and the current setup at UCLA is shown in \Cref{fig:HWT}.
+Effective conductivities have been measured for several candidate ceramics. A reliable technique for measuring conductivity in packed beds is with a hot-wire technique; the technique is thoroughly described in ASTM standard C1113/C1113M document. Briefly, hot-wire measurements are done by raising the temperature of a pebble bed up to a background value (the reported value of $k_\text{eff}(T)$), then pulsing an electric current through a wire embedded in the bed. The pulse of heat on the wire decays as energy is conducted into the pebble bed. The rate of decay provides information on effective thermal diffusivity and thermal conductivity of the packed bed. A sketch of a hot-wire assembly and the former setup at JAEA is shown in \Cref{fig:HWT}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[trim={0cm 2cm 0cm 0cm},clip, width=0.75\textwidth]{images/HWT} 
-	\caption{Schematic of hot wire embedded in a pebble bed and the realization in UCLA's lab (right).}
+	\caption{Schematic of hot wire embedded in a pebble bed and the realization in JAEA's lab (right).}
 	\label{fig:HWT}
 \end{figure}
 
@@ -528,8 +553,9 @@ The coefficient of thermal expansion for a packed bed is also measured for candi
 \end{figure}
 
 However, the accuracy of the model predictions often degrade as soon as a pebble bed's granular material, grain radii distributions, or operating conditions vary from the experimentally studied packed beds. In addition, propensity for creep, crushing, and inter-particle sintering of ceramic materials alter the packing structure in ways not currently predictable with the effective material characterizations. Furthermore, effective conductivity models that consider interstitial gas often assume the gas is stagnant. Much current study in the ceramic breeder field has been on developing more accurate and robust models of heat transfer in packed beds and their unique associated phenomena when employed in fusion reactors.
+\FloatBarrier
 
-\subsection{Thermo-mechanical Effects}
+\subsection{Thermo-mechanical Interactions}
 Reimann et al. have conducted an extensive experimental study of stress-strain relations of ceramic breeder pebble beds using an oedometric test apparatus \cite{Piazza2002811,Reimann:2002kl,Reimann:2003qc,Reimann:2002mi,Reimann:2001il}. The most significant macroscopic experimental phenomena witnessed in pebble beds is an irreversible plastic strain when load is removed, a non-linear elasticity, a pressure-dependent plasticity, and volumetric creep.  A particularly noticeable feature, clearly demonstrated in \Cref{fig:mti}, is the reduced amount of irreversible strain when subjected to additional loading cycles after the first unloading. This may suggest the existence of a semi-equilibrium packing state in the pebble bed which can be reached after applying a pre-load to account for the large strain in the first cycle of a pebble bed. This semi-equilibrium packing state is a feature which may be advantageous for use in a fusion reactor.
 
 To study temperature effects in Reimann's studies, beds are freely heated to desired working temperatures before pressure load is applied. Under the same loading condition, beds behave much softer at higher temperatures. The bed stiffens as the pressure increases. An illustration of this phenomenon is presented in \Cref{fig:UCT} for a lithium orthosilicate pebble bed between \SIrange{50}{850}{\celsius}. At higher temperatures (such as > \SI{650}{\celsius}), a creep-like behavior becomes apparent. Creep behavior allows the pebble bed to relax and sustain higher stresses, however at eleveated temperatures we must keep in mind issues of surface sintering of pebbles. The data was used to correlate creep rate as a function of temperature, stress, and time for both lithium orthosilicate, lithium metatitanate, and beryllium pebble beds \cite{Buhler:2002qf,Reimann:2001il,Reimann2005}.
@@ -537,7 +563,7 @@ To study temperature effects in Reimann's studies, beds are freely heated to des
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/Fig-1}
+    \includegraphics[width=0.5\textwidth]{images/Fig-1}
     \caption{Example of uniaxial compression testing results for lithium metatitanate pebble bed \cite{vanderlaan2011}.}
     \label{fig:mti}
 \end{figure}
@@ -549,8 +575,8 @@ To study temperature effects in Reimann's studies, beds are freely heated to des
     \label{fig:UCT}
 \end{figure}
 
-
-\subsubsection{Post-irradiation experiments at Petten}
+\FloatBarrier
+\subsection{Post-irradiation Experiments}
 The pebble bed assemblies (PBA) experiment is designed to study the effect of neutron irradiation on the thermomechanical behavior of a ceramic breeder pebble-bed under DEMO representative thermomechanical loads \cite{Magielsen2007}. This was accomplished \textit{via} analysis of changes of the in-pile temperature profiles during irradiation as wall as from the post irradiation examination of the pebble bed in the Hot Cells. Within the assemblies, there are four test elements; each resembling a small-scale mock-up of a HCPB TBM with a ceramic breeder pebble bed sandwiched between two beryllium pebble beds. Before irradiation, the beds are pre-compacted with a compressive load of \SI{3}{\mega\pascal} to ensure good settling and contact.
 
 FEM analysis was performed to study pre-compaction procedures.  During progressive irradiation, temperatures are recorded at several locations in the ceramic breeder bed as well as other critical positions. Reviewing the recorded temperature data, when comparing the temperature in the center of the ceramic breeder pebble bed during later cycles and earlier cycles there appears to be a decrease in temperature for the exact same environmental conditions. Changes in the pebble beds and their characteristics are examined both in-pile by neutron radiography and out-of-pile by e.g. SEM during post-irradiation examination (PIE). The estimated bed height reduction from neutron radiographies over the course of the irradiation has shown 3\% of creep compaction. 
@@ -573,16 +599,15 @@ Figure~\ref{fig:pba} shows the cross-section of \lit~pebbles (left) and \lis~peb
 
 
 \FloatBarrier
-\section{Modeling of Solid Breeder Volumes}
-
-In the following sections, the basis of modeling efforts for ceramic pebble beds will be introduced.
-
-\subsection{Continuum Modeling of Packed Beds}
+\section{Continuum Modeling of Packed Beds}
 When we consider beds of granular material from the standpoint of engineering continuum mechanics, packed beds cannot be adequately described by traditional models of either solids or liquids alone. Under compression, a packed bed responds like a solid with non-linear elasticity and a plasticity that is history-dependent. At the same time, the packed bed can obviously not support any tensile pressure and will often behave as an extremely viscous liquid as it may fill in voids under just the force of gravity. Nevertheless, phenomenological models, derived from the volumes of collected data (such as the data described in the above sections), have been developed, using effective material properties for the ceramic pebble bed, that describe the pebble beds in an Eulerian manner that provide reliable information on the initial states of breeder volumes in the fusion reactor environment and allow reasonable design predictions of the thermomechanics of the breeding blanket. 
 
 In spite of the shortcomings of a continuum approach, it is the only option which currently allows treatment of the pebble beds with standard finite element modeling (FEM) that can be scaled up to the breeder system. To employ FEM, mathematical models written in terms of average quantities and containing effective parameters are used. These models deduce a set of constitutive equations to be implemented in the framework of a finite element code.  There are two major variants of phenomenological modeling approaches developed among institutions, including: (1) A non-linear elastic model and a modified Drucker-Prager-Cap theory for plastic strain \cite{Gan2007189,Fokkens2003}; and (2) A hyper-porous non-linear elastic model and a Gurson model for the plastic model \cite{DellOrco:2007hc,DellOrco:2010zr,DiMaio20081287}. Another approach was taken by Ref.\cite{Fokkens2003} wherein the authors employed two different elasticity laws for the loading and unloading branches. Alongside the development of the modeling techniques, several large scale pebble bed thermomechanics experiments were conducted. These experiments were intended to reveal the underlined thermomechanical characteristics of ceramic breeder pebble beds, and provide data for benchmarking the developed models. The vast amount of work done on modeling the pebble beds in the FEM framework can be found in literature. \cite{DellOrco:2007hc,DellOrco:2010zr,DiMaio20101234,Gan:2009vn,Gan:2010lh,Gan:2010kc,Gan2007189} 
 
+Large-scale FEM models provide the only ability to move forward with system-integrated thermomechanical analysis of solid breeder volumes as they will interact with entire breeding modules. For example, many Parties participating with TBM designs in ITER have analyzed their units with FEM simulations. These major efforts will be discussed in another lecture by Dr. Alice Ying and so I won't include any examples here.
 
+% \subsection{FEM Example Analysis}
+% In Europe, a pre-test mock-up experimental (PREMUX) campaign was launched to validate the finite element model developed at KIT. The nuclear heating profile of the unit, as it would exist in ITER, was calculated numerically. A numeric model of a pebble bed, experiencing volumetric heating, was created 
 
 \section{Discrete Modeling of Packed Beds}
 Aided by the acceleration and availability of computational power, many researchers of granular heat transfer have shifted their attention to studies of the interacting physics on pebble-scales with the discrete element method (DEM). In this approach, we interrogate heat transfer on the scale of contact conductance between interacting particles and directly model transient behaviors of packed beds. This approach has the advantage providing the capability to monitor transient changes to meta-stable packing structures of pebble beds; changes such as plastic rearrangement, inter-particle sintering/creep, fragmentation of pebbles, \textit{etc.}.
@@ -709,10 +734,14 @@ The total heat transferred out of a single particle with $Z$ contacts, due to co
     Q_i = \sum_j^Z Q_{ij}
 \end{equation}
 
-\subsection{DEM Examples}
-In a recent study, we considered the changes to heat transfer as packing structures evolve due to fragmentation of individual pebbles.
+\subsection{DEM Example Analysis}
+This section will use a recently published (in print) study we performed using DEM simulation coupled to a volume-averaged CFD code to highlight the information provided by DEM simulations. In the study, we considered the changes to heat transfer as packing structures evolve due to fragmentation of individual pebbles. Pebble fragmentation was considered by replacing individual pebbles with pebbles of smaller sizes. These smaller `fragments' were free to move through interstitial gaps. We ran through a parametric space of initial packing fraction, fragment radius, and breeder volume orientation. For orientation, we considered pebble beds that were `standing up' with vertical walls of heat transfer, and beds that were `lying down' with heat transfer walls that were horizontal.
 
+Using DEM, we tracked the displacement of fragments as they resettled in the beds. \Cref{fig:crushed-travel} depict fragments after being placed into the system (\Cref{fig:crushed-initial}) and after coming to rest (\Cref{fig:crushed-final}). Quantitatively, a histogram of normalized pebble travel is given in \Cref{fig:displacement_hists}. We found that long-distance travel of pebble fragments yielded unintuitive consequences on heat transfer in packed beds (see the paper for more details). 
 
+Temperature distributions in pebble beds at cut-plane in the center of the bed are shown in \Cref{fig:z-pebbles}. The information from DEM was used to identify certain zones in pebble beds which showed different behavior during fragment resettling depending on the orientation of the pebble bed with respect to gravity. In \Cref{fig:z-64-r23-deltas,fig:z-64-r125-deltas}, the changes in packing fraction are shown (as averaged through this cross-sectional plane) for horizontal beds with different size fragments. These figures show the redistribution of mass (and therefore volumetric heating) as a function of amount of crushed pebbles.
+
+This short review is meant to provide just a small glimpse of the power of DEM simulations (with some colorful pictures) and the wealth of information they provide for inter-particle interactions. The results presented here and the conclusions we were able to draw from them would not have been possible without the simulation scale of discrete element method models. For this reason, this approach remains as a main effort of many solid breeder research institutes around the world.
 
 \begin{figure}[h]
         \centering
@@ -736,32 +765,30 @@ In a recent study, we considered the changes to heat transfer as packing structu
     \caption{Normalized displacement histograms. $\chi$-config: 59.7\% of fragments travel up to \SI{1}{\milli\meter} and 8.2\% travel more than \SI{2}{\milli\meter}; $\zeta$-config: 60.7\% of fragments travel up to \SI{1}{\milli\meter}, 7.9\% travel more than \SI{2}{\milli\meter}.}\label{fig:displacement_hists}
 \end{figure}
 
-
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width = \textwidth]{images/z-64-discrete.png}
+    \caption{Cuts at the mid-plane of $z$ for $\zeta$-config beds. (a) bed initially packed to $\phi_2$, and (b) bed with crushing of $\eta_5$ pebbles with particle size $r_2^*$. Three important zones have been identified}\label{fig:z-pebbles}
+\end{figure}
 % deltas~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}[!t]
     \centering
     \includegraphics[width = \textwidth]{images/z-62-r23-1-deltas.png}
-    \caption{Distribution of local changes in packing fraction ($\phi_{\eta} - \phi_i$) for $\zeta$-config, $\phi = 0.62$, $r^* = 0.32$}\label{fig:z-62-r23-deltas}
+    \caption{Distribution of local changes in packing fraction ($\phi_{\eta} - \phi_i$) for $\zeta$-config, $\phi = 0.64$, $r^* = 0.32$}\label{fig:z-64-r23-deltas}
 \end{figure}
 
 \begin{figure}[!t]
     \centering
     \includegraphics[width = \textwidth]{images/z-62-r125-1-deltas.png}
-    \caption{Distribution of local changes in packing fraction ($\phi_{\eta} - \phi_i$) for $\zeta$-config, $\phi = 0.62$, $r^* = 0.2$}\label{fig:z-62-r125-deltas}
-\end{figure}
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width = \textwidth]{images/z-62-r23-1-deltas.png}
-    \caption{Distribution of local changes in packing fraction ($\phi_{\eta} - \phi_i$) for $\zeta$-config, $\phi = 0.64$, $r^* = 0.32$}\label{fig:z-624-r23-deltas}
-\end{figure}
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width = \textwidth]{images/z-62-r125-1-deltas.png}
-    \caption{Distribution of local changes in packing fraction ($\phi_{\eta} - \phi_i$) for $\zeta$-config, $\phi = 0.64$, $r^* = 0.2$}\label{fig:z-624-r125-deltas}
+    \caption{Distribution of local changes in packing fraction ($\phi_{\eta} - \phi_i$) for $\zeta$-config, $\phi = 0.64$, $r^* = 0.2$}\label{fig:z-64-r125-deltas}
 \end{figure}
 % deltas~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\FloatBarrier
+\section{Closing Remarks}
+
+Pebble bed heat transfer appears deceptively simple. After all, the pebbles are meant to be stationary inside a fixed volume container. Yet the unique conditions of solid breeders operating in a fusion environment result in complicated heat transfer mechanisms that are still not fully understood or characterized. In this chapter, we introduced historical, phenomenological models of effective conductivity in packed beds as well as two methods of modeling packed beds specifically for solid breeders: (i) the continuum approach for large-scale FEM models and (ii) microscopic/discrete approach where we track individual pebbles in the ensemble. A full model of heat transfer of a solid breeder unit will, most likely, but a merger between these two approaches. Predictive capabilities for solid breeder pebble beds remains very much an open research topic.
+
 
 
 \bibliography{library.bib}

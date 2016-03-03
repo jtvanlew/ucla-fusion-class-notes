@@ -67,7 +67,7 @@ x_ticks = []
 for i, key in enumerate(A):
 	#ax1.scatter(i, A[key]['Tmelt']*0.6, color = color_idx[0], s = 40)
 	NLi[i] = (A[key]['density']*NA/A[key]['mol_mass'])*A[key]['num']/10**23
-	plt.scatter(i, NLi[i], color = color_idx[0], s = 60)
+	plt.bar(i, NLi[i], color = color_idx[0], align='center')
 	x_ticks.append(A[key]['name'])
 # for tl in ax1.get_yticklabels():
 #     tl.set_color(color_idx[0])
