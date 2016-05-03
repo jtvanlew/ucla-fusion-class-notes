@@ -1,0 +1,172 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{epsfig}
+\usepackage{float}
+%\usepackage{natbib}
+\usepackage{subfigure}
+\usepackage{setspace}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+
+
+\setlength{\oddsidemargin}{0.1in}
+\setlength{\textwidth}{7.25in}
+
+\setlength{\topmargin}{-1in}     %\topmargin: gap above header
+\setlength{\headheight}{0in}     %\headheight: height of header
+\setlength{\topskip}{0in}        %\topskip: between header and text
+\setlength{\headsep}{0in}        
+\setlength{\textheight}{692pt}   %\textheight: height of main text
+\setlength{\textwidth}{7.5in}    % \textwidth: width of text
+\setlength{\oddsidemargin}{-0.5in}  % \oddsidemargin: odd page left margin
+\setlength{\evensidemargin}{0in} %\evensidemargin : even page left margin
+\setlength{\parindent}{0.25in}   %\parindent: indentation of paragraphs
+\setlength{\parskip}{0pt}        %\parskip: gap between paragraphs
+\setlength{\voffset}{0.5in}
+
+\newcommand{\DOT}{\text{\textbullet}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\J}{\mathbf{j}}
+\newcommand{\U}{\mathbf{u}}
+\newcommand{\PD}{\partial}
+\newcommand{\E}{\mathbf{\hat{e}}}
+
+% Useful commands:
+
+% \hfill		aligns-right everything right of \hfill
+
+\begin{document}
+\doublespacing
+\title{Problem 2}
+\author{C. Kawczynski \\
+Department of Mechanical and Aerospace Engineering \\
+University of California Los Angeles, USA\\
+}
+\maketitle
+
+\section{Derive the vorticity equation with the Lorentz force}
+\subsection{Question}
+Derive the vorticity equation $\omega = \frac{\PD U}{\PD y} - \frac{\PD V}{\PD x}$ for a 2D MHD flow (in the x-y plane) of electrically conducting fluid in a constant spanwise magnetic field (the field is in z-direction). Based on this equation, conclude what kind of MHD effect will be experienced by the flow.
+
+\subsection{Solution}
+\underline{Assumptions}
+
+First, not that $\J = \nabla \times \left( \frac{\B}{\mu}\right)$ and $\PD_z () = 0$, therefore $\J = j \mathbf{\hat{e}}_z$. So our assumptions are
+\begin{enumerate}
+\item two-dimensional ($\PD_z() = 0$)
+\item 1 component of vorticity $\omega_x = \omega_y = 0, \mathbf{\omega} = \omega_z$
+\item induced magnetic field is small compared to applied (low magnetic Reynolds number $Re_m << 1$)
+\item currents close at infinity $(\J = j \mathbf{\hat{e}}_z)$
+\end{enumerate}
+
+\underline{Analysis}
+
+The vorticity equation is derived by taking the curl of the momentum equation.
+\begin{equation*}
+	\epsilon_{lmi} \PD_m
+	\left( 
+	\underbrace{\PD_t u_i}_{1} +
+	\underbrace{u_j \PD_j u_i}_{2} = 
+	\underbrace{-\frac{1}{\rho} \PD_i p}_{3} + 
+	\underbrace{\nu \PD_{jj} u_i}_{4} + 
+	\underbrace{\frac{1}{\rho} \epsilon_{ijk} j_j B_k}_{5}
+	\right)
+\end{equation*}
+First, let $\omega_l = \epsilon_{lmi} \PD_m u_i$, and we get the following:
+
+\noindent
+Unsteady term
+\begin{align}
+	\epsilon_{lmi} \PD_m \PD_t u_i
+	& = \PD_t \epsilon_{lmi} \PD_m u_i \notag \\
+	& = \PD_t \omega_l
+\end{align}
+Convection term
+\begin{align}
+	\epsilon_{lmi} \PD_m u_j \PD_j u_i
+	& = \epsilon_{lmi} \PD_m u_j \PD_j u_i \notag \\
+	& = \epsilon_{lmi} \PD_m \PD_j (u_i u_j) \qquad \text{($\PD_i u_i = 0$)} \notag \\
+	& = \epsilon_{lmi} \PD_j \PD_m (u_i u_j) \qquad \text{(swap $\PD$ order)} \notag \\
+	& = \PD_j \PD_m (\epsilon_{lmi} u_i u_j) \notag \\
+	& = \PD_j (\omega_l u_j) \notag \\
+	& = u_j \PD_j \omega_l \qquad \text{($\PD_j u_j = 0$)} \notag \\
+\end{align}
+Pressure term
+\begin{align}
+	- \epsilon_{lmi} \PD_m \frac{1}{\rho} \PD_i p
+	& = -  \frac{1}{\rho} \epsilon_{lmi} \PD_m \PD_i p \notag \\
+	& = 0 \qquad \text{(by identity)}
+\end{align}
+Diffusion term
+\begin{align}
+	\epsilon_{lmi} \PD_m \nu \PD_{jj} u_i
+	& = \nu \PD_m \PD_{jj} \epsilon_{lmi} u_i \notag \\
+	& = \nu \PD_j \PD_{mj} \epsilon_{lmi} u_i \qquad \text{(swap $\PD$ order)} \notag \\
+	& = \nu \PD_j \PD_{jm} \epsilon_{lmi} u_i \qquad \text{(swap index)} \notag \\
+	& = \nu \PD_j \PD_{j} \omega_l \notag \\
+	& = \nu \PD_{jj} \omega_l \notag \\
+\end{align}
+\newpage
+\noindent
+The last term (5) is the contribution from the electromagnetic Lorentz force. 
+\subsubsection{Assuming low magnetic Reynolds number}
+Making use of the vector identity
+\begin{equation*}
+	\nabla \times (\A \times \B) = \A (\nabla \DOT \B) - \B (\nabla \DOT \A) + (\B \DOT \nabla) \A - (\A \DOT \nabla) \B
+\end{equation*}
+We have
+\begin{align}
+	\nabla \times \J \times \B
+	& = \underbrace{\J (\nabla \DOT \B)}_{=0} - 
+	    \underbrace{\B (\nabla \DOT \J)}_{=0} + 
+	    (\B \DOT \nabla) \J - 
+	    (\J \DOT \nabla) \B \notag \qquad \text{(vector identity)} \\
+	& = (\B \DOT \nabla) \J - (\J \DOT \nabla) \B \notag \\
+	& = \underbrace{B_x \PD_x \J + B_y \PD_y \J}_{=0,\text{ (assumption 3)}} + \underbrace{B_z \PD_z \J}_{=0, \text{($\PD_z()=0$)}}
+	- \left( \underbrace{j_x \PD_x \B + j_y \PD_y \B}_{=0, \text{ (assumption 4)}} + \underbrace{j_z \PD_z \B}_{=0, \text{ ($\PD_z()=0$)}} \right) \notag \\
+	& = \mathbf{0}
+\end{align}
+
+\subsubsection{Assuming **finite magnetic Reynolds number**}
+Here, we relax the assumption of low magnetic Reynolds number. Making use of the vector identity
+\begin{equation*}
+	\nabla \times (\A \times \B) = \A (\nabla \DOT \B) - \B (\nabla \DOT \A) + (\B \DOT \nabla) \A - (\A \DOT \nabla) \B
+\end{equation*}
+We have
+\begin{align}
+	\nabla \times \J \times \B
+	& = \underbrace{\J (\nabla \DOT \B)}_{=0} - 
+	    \underbrace{\B (\nabla \DOT \J)}_{=0} + 
+	    (\B \DOT \nabla) \J - 
+	    (\J \DOT \nabla) \B \notag \qquad \text{(vector identity)} \\
+	& = (\B \DOT \nabla) \J - (\J \DOT \nabla) \B \notag \\
+	& = B_x \PD_x \J + B_y \PD_y \J + \underbrace{B_z \PD_z \J}_{=0, \text{($\PD_z()=0$)}}
+	- \left( \underbrace{j_x \PD_x \B + j_y \PD_y \B}_{=0, \text{ (assumption 4)}} + \underbrace{j_z \PD_z \B}_{=0, \text{ ($\PD_z()=0$)}} \right) \notag \\
+	& = B_x \PD_x j + B_y \PD_y j
+\end{align}
+
+\subsection{Final result}
+\subsubsection{Low magnetic Reynolds number}
+Putting this all together, we have
+\begin{equation*}
+	\frac{\PD \omega}{\PD t} +
+	(\U \DOT \nabla) \omega =
+	\nu \nabla^2 \omega
+\end{equation*}
+Therefore, the vorticity equation is unaffected by the Lorentz force for this 2D flow.
+
+\subsubsection{Finite magnetic Reynolds number}
+Putting this all together, we have
+\begin{equation*}
+	\frac{\PD \omega}{\PD t} +
+	(\U \DOT \nabla) \omega =
+	\nu \nabla^2 \omega + (\B \DOT \nabla) \J
+\end{equation*}
+
+\end{document}

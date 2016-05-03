@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{epsfig}
+\usepackage{float}
+%\usepackage{natbib}
+\usepackage{subfigure}
+\usepackage{setspace}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+
+
+\setlength{\oddsidemargin}{0.1in}
+\setlength{\textwidth}{7.25in}
+
+\setlength{\topmargin}{-1in}     %\topmargin: gap above header
+\setlength{\headheight}{0in}     %\headheight: height of header
+\setlength{\topskip}{0in}        %\topskip: between header and text
+\setlength{\headsep}{0in}        
+\setlength{\textheight}{692pt}   %\textheight: height of main text
+\setlength{\textwidth}{7.5in}    % \textwidth: width of text
+\setlength{\oddsidemargin}{-0.5in}  % \oddsidemargin: odd page left margin
+\setlength{\evensidemargin}{0in} %\evensidemargin : even page left margin
+\setlength{\parindent}{0.25in}   %\parindent: indentation of paragraphs
+\setlength{\parskip}{0pt}        %\parskip: gap between paragraphs
+\setlength{\voffset}{0.5in}
+
+\newcommand{\DOT}{\text{\textbullet}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\U}{\mathbf{u}}
+\newcommand{\PD}{\partial}
+\newcommand{\E}{\mathbf{\hat{e}}}
+
+% Useful commands:
+
+% \hfill		aligns-right everything right of \hfill
+
+\begin{document}
+\doublespacing
+\title{Problem 3}
+\author{C. Kawczynski \\
+Department of Mechanical and Aerospace Engineering \\
+University of California Los Angeles, USA\\
+}
+\maketitle
+
+\section{Circular pipe with insulating walls}
+\subsection{Question}
+Consider a fully developed MHD flow in a non-conducting circular pipe with radius $R$ in the presence of a uniform magnetic field in the z-direction ($\B = B \E_z$) as shown in the figure.
+
+For such a configuration evaluate the following:
+
+a) The distribution of electric potential along the wall ($r=R$) of the pipe for a given axisymmetric velocity profile $\U(r) = 2 u_{ave} \left( 1 - \frac{r^2}{R^2} \right) \E_x$ (here $u_{ave}$ is the average fluid velocity) by solving a 2D Poisson equation for the electric potential in the y-z plane with the assumption that the velocity profile is not affected by the magnetic field. [HINT: use the method of separation of variables.]
+
+b) Potential difference between points A and B for the magnetic field strength B of 1 Tesla, average velocity $u_{ave}$ of 10 cm/sec and pipe radius $R$ of 10 cm.
+
+\subsection{Solution}
+Assuming axi-symmetric flow and
+\begin{equation}
+	\B = B \E_z
+	, \qquad
+	\U = \U(r) \E_x.
+\end{equation}
+
+The governing equation for $\phi$ is
+\begin{equation}
+	\nabla^2 \phi = \B \DOT \omega
+\end{equation}
+with
+\begin{equation}
+	\frac{\PD \phi}{\PD r} = 0, \qquad \text{for} \qquad r=R.
+\end{equation}
+Evaluating this we have
+\begin{equation}
+	\nabla^2\phi 
+	= -B \frac{\PD u}{\PD y}
+	= -B \frac{\PD u}{\PD r} \frac{\PD r}{\PD y}
+	= -B \frac{\PD u}{\PD r} \cos(\theta)
+\end{equation}
+Using the vector identity for the Laplacian operator in cylindrical coordinates, we have
+\begin{equation}
+	\nabla^2 \phi = 
+	\frac{1}{r} \frac{\PD}{\PD r} \left( r \frac{\PD \phi}{\PD r} \right)
+	+ \frac{1}{r^2} \frac{\PD^2 \phi}{\PD \theta^2}
+\end{equation}
+Equating the last two equations, we have
+\begin{equation}
+	\frac{1}{r} \frac{\PD}{\PD r} \left( r \frac{\PD \phi}{\PD r} \right)
+	+ \frac{1}{r^2} \frac{\PD^2 \phi}{\PD \theta^2}
+	=
+	-B \frac{\PD u}{\PD r} \cos(\theta)
+\end{equation}
+Use the ansatz $\phi(r,\theta) = \cos(\theta) f(r)$ to get
+\begin{equation}
+	\frac{d}{dr} \left( r^2 \frac{df}{dr} - rf \right)
+	=
+	-r^2 Bu'
+\end{equation}
+Apply the BC $\frac{df}{dr}=0$ at $r=R$ and integrating the above equation from 0 to $R$ to get
+\begin{equation}
+	\left[ r^2 \frac{df}{dr} - rf \right]_0^R
+	=
+	-B \int_0^R r^2 u' dr
+	= \left[ -Br^2 u \right]_0^R + 2B \int_0^R r-u dr
+\end{equation}
+
+Second term on RHS of above equation is the flow rate and the first term goes to zero.
+\begin{equation}
+	R f(R) = \frac{2B \Phi}{2 \pi}
+\end{equation}
+Where
+\begin{equation}
+	\Phi = \text{flow rate} = \iint_S \U \DOT ds
+	= 2\pi \int_0^R u(r) r dr
+	, \qquad \text{(axisymmetric)}
+\end{equation}
+Therefore we have
+\begin{equation}
+	\boxed{
+	f(R) = \frac{B\Phi}{\pi R}
+	}
+\end{equation}
+Finally
+\begin{equation}
+	\boxed{
+	\phi(R) = \frac{B\Phi}{\pi R} \cos(\theta)
+	}
+\end{equation}
+
+Voltage difference at points A and B are
+\begin{equation}
+	\cos(\theta) = -1 \text{ and } +1
+\end{equation}
+So we have
+\begin{equation}
+	|\phi_A - \phi_B| 
+	= \phi(R,\pi) - \phi(R,0)
+	=-2f(R)
+\end{equation}
+Therefore
+\begin{equation}
+	\boxed{|\phi_A - \phi_B | = \frac{2B\Phi}{\pi R}}
+\end{equation}
+This shows that the solution is independent of the velocity profile provided it is axisymmetric.
+
+\end{document}
